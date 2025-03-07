@@ -99,7 +99,7 @@ function divide(float $a, float $b): float{
 // Nullable types(PHP 8.0+)
 // Allows parameters to be null
 function findUser(?int $id): ?array {
-    if ($id == null){
+    if ($id === null){
         return null;
     }
     // Code to find user
