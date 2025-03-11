@@ -168,8 +168,8 @@ $users = [
     ["name" => "John", "email" => "john@email.com"], 
     ["name" => "Jane", "email" => "jane@email.com"]];
 
-foreach($user as $users){
-    echo "Name: " . $users["name"] . ", Email: " . $users["email"] . "\n";
+foreach($users as $user){
+    echo "Name: " . $user["name"] . ", Email: " . $user["email"] . "\n";
 }
 
 
@@ -231,7 +231,7 @@ $set2 = [3, 4, 5, 6];
 
 $intersection = array_intersect($set1, $set2); // [3, 4] - Elements in both arrays
 $difference = array_diff($set1, $set2); // [1, 2] - Elements in $set1 but not $set2
-$union = array_unique($set1, $set2); // [1, 2, 3, 4, 5, 6] - All unique elements
+$union = array_unique(array_merge($set1, $set2)); // [1, 2, 3, 4, 5, 6] - All unique elements
 
 // Column extraction from array of arrays
 $users = [
