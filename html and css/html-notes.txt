@@ -1,0 +1,48 @@
+HTML
+
+Hypertext Markup Language is the standard language for creating web pages.
+
+Getting started
+
+HTML structure
+
+DOCTYPE declaration
+<!DOCTYPE html>
+This declaaration tells browser that this is a HTML5 document(latest HTML)
+
+HTML Element
+<html lang="en">...</html>
+The root element of an HTML page. The lang attribute specifies the language.
+
+Head Element
+<head>....</head>
+The head contains meta-information about the document that isn't displayed
+
+Meta tags
+<meta charset="UTF-8">
+Specifies the character encoding
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Makes the page responsive for mobile devices
+
+Title element
+<title>Page Title</title>
+Sets the title of the page (appears in the browser tab)
+
+Body Element
+<body>...</body>
+Contains all the visible content of a webpage
+
+Text Elements
+Heading
+Has six levels that decrease in size. They are <h1></h1>, <h2></h2>, <h3></h3>, <h4></h4>, <h5></h5>, and <h6></h6>
+<h1> Main heading</h1>
+The largest heading
+
+<h6>Heading</h6>
+Smallest heading
+
+Paragraphs
+<p> This is a paragraph text. HTML will automatically wrap the text </p>
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML forms</title>
+</head>
+<body>
+    <h1>HTML Forms</h1>
+
+    <!-- Form element creates a form that submits data to a server -->
+    <form action="" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+
+        <!-- Password input -->
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <br>
+
+        <!-- Radio buttons -->
+        <input type="radio" id="option1" name="choice" value="option1">
+        <label for="option1">Option 1</label>
+
+        <input type="radio" id="option2" name="choice" value="option2">
+        <label for="option2">Option 2</label>
+        <br>
+
+        <!-- Checkbox -->
+        <input type="checkbox" name="subscribe" id="subscribe">
+        <label for="subscribe">Subscribe to newsletter</label>
+        <br>
+
+        <!-- Dropdown menu -->
+        <label for="country">Country</label>
+        <select name="country" id="country">
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+            <option value="Kenya">Kenya</option>
+        </select>
+        <br>
+
+        <!-- Text area -->
+        <label for="message">Message us:</label>
+        <textarea name="message" id="message" rows="4" cols="50" placeholder="We'd love to hear from you"></textarea>
+
+        <!-- Submit button -->
+        <input type="submit" name="submit" id="submit">
+
+    </form>
+</body>
+</html>

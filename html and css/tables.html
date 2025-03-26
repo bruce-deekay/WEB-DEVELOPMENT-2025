@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables in HTML</title>
+</head>
+<body>
+    <h1>HTML Tables</h1>
+
+    <table border="5">
+        <thead>
+            <!-- Table header section -->
+            <tr>
+                <!-- th makes it bold since it is a heading  -->
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table body section -->
+            <tr>
+                <td>John</td>
+                <td>30</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>James</td>
+                <td>35</td>
+                <td>UK</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <!-- Table footer section -->
+            <tr>
+                <td colspan="3"> Total: 2 people</td>
+                <!-- colspan makes this cell span 3 columns -->
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

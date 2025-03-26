@@ -285,9 +285,11 @@ function countUsers($pdo){
     }
 }
 
+/*
 // Example Usage
 $totalUsers = countUsers($pdo);
 echo "Total number of users: $totalUsers";
+*/
 
 // Update (UPDATE) -> UPDATE table_name SET column_name = new_value;
 // 1. Updating a single record
@@ -318,6 +320,7 @@ function updateUser($pdo, $userId, $data){
     }
 }
 
+/*
 // Usage
 $updated = updateUser($pdo, 1, [
     'username' => 'new_username',
@@ -328,6 +331,92 @@ if ($updated){
     echo "User updated successfully. Rows affected: $updated";
 } else {
     echo "No changes made or user not found";
+}
+*/
+
+// 3. Updating multiple records
+function updateProductPrices($pdo, $productId, $increasePercentage){
+    try{
+        $stmnt = $pdo->prepare("
+        UPDATE products
+        SET price = price * (1 + :percentage / 100)
+        WHERE id = :product_id
+        ");
+
+        $stmnt->execute([
+            ':percentage'=>$increasePercentage,
+            ':id'=>$productId
+        ]);
+
+        return $stmnt->rowCount();
+
+    } catch (PDOException $e){
+        echo "Error updating prices." . $e->getMessage();
+        return false;
+    }
+}
+
+/*
+// Usage
+$newPrice = updateProductPrices($pdo,1, 5);
+
+if ($newPrice){
+    echo "Price has been updated successfully. $rowsUpdated product affected.";
+} else {
+    echo "No changes were made!";
+}
+    */
+
+// Delete (DELETE) FROM table_name WHERE column = value;
+// Deleting a single record
+
+function deleteUser($pdo, $userId){
+    try{
+        $stmnt = $pdo->prepare("DELETE FROM users WHERE id = :id");
+        $stmnt->execute([':id'=>$userId]);
+
+        // Return number of rows affected
+        return $stmnt->rowCount();
+    } catch (PDOException $e){
+        echo "Error deleting user!" .$e->getMessage();
+        return false;
+    }
+}
+
+/*
+// Usage
+$killUser = deleteUser($pdo, 2);
+if ($killUser){
+    echo "User has been deleted successfully";
+} else {
+    echo "No users were found or could be deleted";
+}
+    */
+
+// 2. Soft delete (marking as deleted instead of acual deletion)
+function softDeleteUser($pdo, $userId){
+    try{
+        $stmnt=$pdo->prepare("
+        UPDATE users
+        SET deleted_at = NOW(), active = 0
+        WHERE id = :id;
+        ");
+        $stmnt->execute([':id'=>$userId]);
+
+        // Return number of rows affected
+        return $stmnt->rowCount();
+    } catch (PDOException $e){
+        echo "Error soft-deleting user." . $e->getMessage();
+        return false;
+    }
+}
+
+//Usage
+$moveTrash = softDeleteUser($pdo, 2);
+if($moveTrash){
+    echo "User successfully moved to trash";
+} else {
+    echo "No users were found or moved to trash";
 }
 
 ?>
