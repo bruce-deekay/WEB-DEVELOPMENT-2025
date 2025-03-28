@@ -38,10 +38,10 @@
                     <?php if ($_SESSION['user_role'] == 'admin' || $_SESSION['user_role']=='author') : ?>
                         <a href="<?php echo BASE_URL; ?>/admin/manage-posts.php">Dashboard</a>
                         <?php endif; ?>
-                        < a href="<?php echo BASE_URL; ?>/logout.php">Logout</a>
+                        <a href="<?php echo BASE_URL; ?>/logout.php">Logout</a>
                 <php else : ?>
-                            < a href="<?php echo BASE_URL; ?>/login.php">Login</a>
-                            < a href="<?php echo BASE_URL; ?>/register.php">Register</a>
+                            <a href="<?php echo BASE_URL; ?>/login.php">Login</a>
+                            <a href="<?php echo BASE_URL; ?>/register.php">Register</a>
                 <?php endif; ?>
 
             </div>

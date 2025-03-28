@@ -10,16 +10,16 @@ class Post{
     // Get all posts
     public function getPosts(){
         $this->db->query('
-        SELECT
-            p.*,
+        SELECT 
+            p.*, 
             u.username,
-            c.name as category,
+            c.name as category
         FROM
             posts p
         LEFT JOIN
             users u ON p.user_id=u.id
         LEFT JOIN
-            categories c ON p.category_id=p.id
+            categories c ON p.category_id=c.id
         ORDER BY
             p.created_at DESC
         ');
@@ -45,6 +45,7 @@ class Post{
         ORDER BY
             p.created_at
         ');
+        $this->db->bind(':category_id', $category_id);
         return $this->db->resultSet();
     }
 
